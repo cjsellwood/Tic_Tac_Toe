@@ -23,26 +23,144 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    
 }
 
 .board {
-    width: 600px;
-    height: 600px;
+    width: 640px;
+    height: 640px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 30px;
     border: 20px solid black;
+    position: relative;
 }
 
 .square {
-    outline: 15px solid white;
     min-width: 200px;
     min-height: 200px;
-    color: rgb(243, 0, 243);
+    color: rgb(223, 0, 243);
     text-align: center;
     line-height: 200px;
     font-size: 10em;
+    font-weight: 500;
     background-color: black;
+}
+
+
+/* lines */
+.square[data-square="0"] {
+    border-bottom: 10px solid white;
+    border-right: 10px solid white;
+}
+
+.square[data-square="1"] {
+    border-bottom: 10px solid white;
+    border-right: 10px solid white;
+    border-left: 10px solid white;
+}
+
+.square[data-square="2"] {
+    border-bottom: 10px solid white;
+    border-left: 10px solid white;
+}
+
+.square[data-square="3"] {
+    border-top: 10px solid white;
+    border-bottom: 10px solid white;
+    border-right: 10px solid white;
+}
+
+.square[data-square="4"] {
+    border-top: 10px solid white;
+    border-bottom: 10px solid white;
+    border-right: 10px solid white;
+    border-left: 10px solid white;
+}
+
+.square[data-square="5"] {
+    border-top: 10px solid white;
+    border-bottom: 10px solid white;
+    border-left: 10px solid white;
+}
+
+.square[data-square="6"] {
+    border-top: 10px solid white;
+    border-right: 10px solid white;
+}
+
+.square[data-square="7"] {
+    border-top: 10px solid white;
+    border-right: 10px solid white;
+    border-left: 10px solid white;
+}
+
+.square[data-square="8"] {
+    border-top: 10px solid white;
+    border-left: 10px solid white;
+}
+
+.stroke {
+    border: 10px solid rgb(223, 0, 243);
+    position: absolute;
+    width: 660px;
+    display: none;
+    border-radius: 10px;
+}
+
+/* Horizontal strokes */
+.stroke[data-stroke="0"] {
+    left: -20px;
+    top: 90px;
+}
+
+.stroke[data-stroke="1"] {
+    left: -20px;
+    top: 310px;
+}
+
+.stroke[data-stroke="2"] {
+    left: -20px;
+    top: 530px;
+}
+
+/* Vertical strokes */
+.stroke[data-stroke="3"] {
+    left: -240px;
+    top: 310px;
+    transform: rotate(90deg);
+}
+
+.stroke[data-stroke="4"] {
+    left: -20px;
+    top: 310px;
+    transform: rotate(90deg);
+}
+
+.stroke[data-stroke="5"] {
+    left: 200px;
+    top: 310px;
+    transform: rotate(90deg);
+}
+
+/* Diagonal Strokes */
+.stroke[data-stroke="6"] {
+    left: -140px;
+    top: 310px;
+    width: 900px;
+    transform: rotate(45deg);
+}
+
+.stroke[data-stroke="7"] {
+    left: -140px;
+    top: 310px;
+    width: 900px;
+    transform: rotate(135deg);
+}
+
+@keyframes stroke-fade {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
