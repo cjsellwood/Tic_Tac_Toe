@@ -51,10 +51,6 @@ body {
     min-width: 200px;
     min-height: 200px;
     color: rgb(68, 68, 68);
-    text-shadow: 2px 2px 3px rgb(0, 255, 0),
-    -2px -2px 3px rgb(0, 255, 0),
-    -2px 2px 3px rgb(0, 255, 0),
-    2px -2px 3px rgb(0, 255, 0);
     text-align: center;
     line-height: 200px;
     font-size: 10em;
@@ -331,7 +327,7 @@ label[for="name2"] {
     width: 100%;
     height: 300px;
     position: absolute;
-    top: 250px;
+    top: 221px;
     text-align: center;
 }
 
@@ -357,8 +353,8 @@ label[for="name2"] {
     outline: none;
     font-size: 1.5em;
     height: 40px;
-    margin-top: 10px;
-    margin-bottom: 30px;
+
+
 }
 
 label[for="name0"] {
@@ -367,9 +363,17 @@ label[for="name0"] {
 
 input[type="text"] {
     width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-label[for="difficulty"] {
+label[for="easy"] {
+    margin: 20px;
+}
+
+label[for="hard"] {
+    margin: 20px;
+    margin-left: 80px;
 }
 
 label[for="difficulty"], label[for="easy"], label[for="hard"] {
@@ -384,18 +388,9 @@ label[for="difficulty"], label[for="easy"], label[for="hard"] {
 }
 
 input[type="radio"] {
+    margin-top: 20px;
     transform: scale(2);
-    margin: 20px;
-    margin-top: 50px;
 }
-
-
-
-
-
-
-
-
 
 #start {
     color: rgb(68, 68, 68);
@@ -417,4 +412,45 @@ input[type="radio"] {
     -1px -1px 2px rgb(0, 255, 0),
     -1px 1px 2px rgb(255, 0, 255),
     1px -1px 2px rgb(0, 255, 0);
+}
+
+#score1 {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    top: 0px;
+    left: -250px;
+    color: white;
+    display: none;
+    text-align: center;
+    font-size: 2em;
+    color: rgb(0, 255, 0);
+}
+
+#score2 {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    top: 0px;
+    left: 690px;
+    color: white;
+    display: none;
+    text-align: center;
+    font-size: 2em;
+    color: rgb(255, 0, 255);
+}
+
+#turn-indicator {
+    color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0);
+    position: absolute;
+    top: -60px;
+    border: none;
+    text-align: center;
+    outline: none;
+    width: 500px;
+    height: 65px;
+    font-size: 2em;
+    border-radius: 200px;
+    display: none;
 }

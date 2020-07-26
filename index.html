@@ -38,27 +38,39 @@
 
                 <div id="enter-names">
                     <label for="name1">Player 1</label>
-                    <input id="name1" name="name1" type=text>
+                    <input id="name1" name="name1" type=text placeholder="name">
                     <label for="name2">Player 2</label>
-                    <input id="name2" name="name2" type=text>
+                    <input id="name2" name="name2" type=text placeholder="name">
                 </div>
 
                 <div id="computer-name">
                     <label for="name0">Player 1</label>
-                    <input id="name0" name="name0" type=text>
+                    <input id="name0" name="name0" type=text placeholder="name">
 
                     <label for="difficulty">Difficulty</label><br>
-                    <label for="easy">Easy</label>
-                    <input type=radio id="easy" name="difficulty">
-                    <label for="hard">Hard</label>
-                    <input type=radio id="hard" name="difficulty">
-
+                    <label for="easy">Easy
+                        <input type=radio id="easy" name="difficulty">
+                    </label>
+                    <label for="hard">Hard
+                        <input type=radio id="hard" name="difficulty">
+                    </label>
                 </div>
 
                 <button id="start">Start</button>
+                
+                <div id="score1">
+                    <div id="score1-player"></div>
+                    <div id="score1-number"></div>
+                </div>
+                <div id="score2">
+                    <div id="score2-player"></div>
+                    <div id="score2-number"></div>
+                </div>
 
+                <div id="turn-indicator"></div>
 
             </div>
+
             
         </div>
 
