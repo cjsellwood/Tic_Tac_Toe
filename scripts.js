@@ -147,23 +147,41 @@ let gameBoard = (() => {
         render()
     }
 
+    let players1 = document.getElementById("players-1");
+    let players2 = document.getElementById("players-2");
+    let enterNames = document.getElementById("enter-names");
+    let computerName = document.getElementById("computer-name");
+
+    const startState = () => {
+        players1.addEventListener('click', () => {
+            enterNames.style.display = "none";
+            computerName.style.display = "block";
+        })
+
+        players2.addEventListener('click', () => {
+            enterNames.style.display = "block";
+            computerName.style.display = "none";
+        })
+    }
+
+
     // Available for public use
     return { 
         addMark: addMark,
+        startState: startState,
      }
 })();
 
-gameBoard.addMark();
+gameBoard.startState();
 
 
 
 
 // Module for the display Controller
 let displayController = (() => {
+
     
 })();
-
-
 
 
 // Factory for creating players
