@@ -181,8 +181,8 @@ body {
 
 #winner {
     position: absolute;
-    width: 640px;
-    height: 640px;
+    min-width: 900px;
+    height: 740px;
     top: -100px;
     text-align: center;
     font-size: 5em;
@@ -193,6 +193,7 @@ body {
     2px -2px 3px rgb(0, 255, 0);
     line-height: 640px;
     display: none;
+    overflow: hidden;
 }
 
 #reset-button {
@@ -343,9 +344,6 @@ label[for="name2"] {
     margin-bottom: 10px;
 }
 
-
-
-
 #computer-name > input {
     color: rgb(255, 255, 255);
     background-color: rgba(255, 255, 255, 0);
@@ -353,8 +351,6 @@ label[for="name2"] {
     outline: none;
     font-size: 1.5em;
     height: 40px;
-
-
 }
 
 label[for="name0"] {
@@ -425,6 +421,7 @@ input[type="radio"] {
     text-align: center;
     font-size: 2em;
     color: rgb(0, 255, 0);
+    overflow: hidden;
 }
 
 #score2 {
@@ -438,6 +435,7 @@ input[type="radio"] {
     text-align: center;
     font-size: 2em;
     color: rgb(255, 0, 255);
+    overflow: hidden;
 }
 
 #turn-indicator {

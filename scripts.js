@@ -30,9 +30,6 @@ let gameBoard = (() => {
             }
         }
 
-        resetButton.addEventListener('click', () => {
-            resetBoard(one, two);
-        });
 
         // Display Name and score
         score1Number.textContent = score1Value;
@@ -64,6 +61,7 @@ let gameBoard = (() => {
                     checkWinner(one, two);
                 }
             })
+
         })
     }
 
@@ -202,12 +200,12 @@ let gameBoard = (() => {
 
             // Fade squares
             for (let i = 0; i < squares.length; i++) {
-                squares[i].style.animation = "2s 1.5s squares-fade ease-out 1 forwards";
+                squares[i].style.animation = "1s 1.0s squares-fade ease-out 1 forwards";
             }
 
             // Fade strokes
             for (let i = 0; i < strokes.length; i++) {
-                strokes[i].style.animation = "2s 1.5s squares-fade ease-out 1 forwards";
+                strokes[i].style.animation = "1s 1.0s squares-fade ease-out 1 forwards";
             }
 
             // Remove turn indicator
@@ -224,12 +222,12 @@ let gameBoard = (() => {
 
             // Fade squares
             for (let i = 0; i < squares.length; i++) {
-                squares[i].style.animation = "2s 1.5s squares-fade ease-out 1 forwards";
+                squares[i].style.animation = "1.0s 1.0s squares-fade ease-out 1 forwards";
             }
 
             // Fade strokes
             for (let i = 0; i < strokes.length; i++) {
-                strokes[i].style.animation = "2s 1.5s squares-fade ease-out 1 forwards";
+                strokes[i].style.animation = "1.0s 1.0s squares-fade ease-out 1 forwards";
             }
             // Remove turn indicator
             turnIndicator.style.display = "none";
@@ -282,6 +280,7 @@ let gameBoard = (() => {
 
 
     const startState = () => {
+        // Add button events
         players1.addEventListener('click', () => {
             enterNames.style.display = "none";
             computerName.style.display = "block";
@@ -292,11 +291,19 @@ let gameBoard = (() => {
             computerName.style.display = "none";
         })
 
+
+
+
         // Button to start game if inputs are added
         startButton.addEventListener('click', () => {
             if (name1.value !== "" && name2.value !== "") {
                 player1 = name1.value;
                 player2 = name2.value;
+                // Add reset button listener
+                resetButton.addEventListener('click', () => {
+                    resetBoard(player1, player2);
+                });
+
                 startGame(player1, player2)
             } else if (name0.value !== "" && (easy.checked || hard.checked)) {
                 player0 = name0.value;
@@ -306,6 +313,11 @@ let gameBoard = (() => {
                 } else if (hard.checked) {
                     difficulty = "hard";
                 }
+
+                resetButton.addEventListener('click', () => {
+                    resetBoard(player0, difficulty);
+                });
+
                 startGame(player0, difficulty);
             }
         })
