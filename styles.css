@@ -260,7 +260,7 @@ body {
 }
 
 #players-2 {
-    left: 350px;
+    /* left: 350px; */
 }
 
 #players-1:hover, #players-2:hover {

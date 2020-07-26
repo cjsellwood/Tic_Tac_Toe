@@ -48,7 +48,6 @@ let gameBoard = (() => {
         squares.forEach((square) => {
             const index = square.getAttribute('data-square');
             square.addEventListener('click', () => {
-
                 if (board[index] === "") {
                     if (turnIndicator.textContent === one) {
                         board[index] = "x";
@@ -65,6 +64,7 @@ let gameBoard = (() => {
         })
     }
 
+    // Checks if there are 3 in a row and display winner
     const checkWinner = (one, two) => {
         let winner = "";
 
@@ -88,7 +88,6 @@ let gameBoard = (() => {
                         break;
                 }
                 // Change stroke colour if purple won 
-                console.log(winner);
                 if (winner === "o") {
                     strokes[strokeToDisplay].style.border = "10px solid rgb(255, 0, 255)";
                     strokes[strokeToDisplay].style.boxShadow = "2px 2px 3px rgb(255, 0, 255), -2px -2px 3px rgb(255, 0, 255), -2px 2px 3px rgb(255, 0, 255), 2px -2px 3px rgb(255, 0, 255)";
@@ -123,11 +122,6 @@ let gameBoard = (() => {
                 }
 
                 // Change stroke colour if purple won 
-                console.log("vertical");
-                console.log("winner " + winner);
-                console.log("i " + i);
-                console.log("strokei " + strokeToDisplay);
-
                 if (winner === "o") {
                     strokes[strokeToDisplay].style.border = "10px solid rgb(255, 0, 255)";
                     strokes[strokeToDisplay].style.boxShadow = "2px 2px 3px rgb(255, 0, 255), -2px -2px 3px rgb(255, 0, 255), -2px 2px 3px rgb(255, 0, 255), 2px -2px 3px rgb(255, 0, 255)";
@@ -144,10 +138,6 @@ let gameBoard = (() => {
         if (board[0] === board[4] && board[0] === board[8] && board[0] !== "") {
             winner = board[0];
 
-            console.log("diagonal");
-            console.log("winner " + winner);
-            console.log("stroke " + strokes[6]);
-
             // Change stroke colour if purple won 
             if (winner === "o") {
                 strokes[6].style.border = "10px solid rgb(255, 0, 255)";
@@ -162,10 +152,6 @@ let gameBoard = (() => {
         }
         if (board[2] === board[4] && board[2] === board[6] && board[2] != "") {
             winner = board[2];
-
-            console.log("diagonal");
-            console.log("winner " + winner);
-            console.log("stroke " + strokes[6]);
 
             // Change stroke colour if purple won 
             if (winner === "o") {
@@ -237,7 +223,6 @@ let gameBoard = (() => {
     
     // Restart the game with a blank board
     const resetBoard = (one, two) => {
-        console.log("reseting")
         
         // Board reset
         board = ["", "", "", "", "", "", "", "", ""]
@@ -258,8 +243,6 @@ let gameBoard = (() => {
 
         turnIndicator.style.display = "block";
         turnIndicator.textContent = [one, two][Math.floor(Math.random() * 2)];
-
-
     }
 
     let players1 = document.getElementById("players-1");
@@ -281,18 +264,16 @@ let gameBoard = (() => {
 
     const startState = () => {
         // Add button events
-        players1.addEventListener('click', () => {
-            enterNames.style.display = "none";
-            computerName.style.display = "block";
-        })
+
+        // players1.addEventListener('click', () => {
+        //     enterNames.style.display = "none";
+        //     computerName.style.display = "block";
+        // })
 
         players2.addEventListener('click', () => {
             enterNames.style.display = "block";
             computerName.style.display = "none";
         })
-
-
-
 
         // Button to start game if inputs are added
         startButton.addEventListener('click', () => {
@@ -337,7 +318,7 @@ let gameBoard = (() => {
 
     const startGame = (one, two) => {
         // Clear menu and display board
-        players1.style.display = "none";
+        // players1.style.display = "none";
         players2.style.display = "none";
         enterNames.style.display = "none";
         computerName.style.display = "none";
@@ -363,42 +344,8 @@ let gameBoard = (() => {
 
     // Available for public use
     return { 
-        addMark: addMark,
         startState: startState,
      }
 })();
 
 gameBoard.startState();
-
-
-function augment(withFn) {
-    var name, fn;
-    for (name in window) {
-        fn = window[name];
-        if (typeof fn === 'function') {
-            window[name] = (function(name, fn) {
-                var args = arguments;
-                return function() {
-                    withFn.apply(this, args);
-                    return fn.apply(this, arguments);
-
-                }
-            })(name, fn);
-        }
-    }
-}
-
-
-
-// Module for the display Controller
-let displayController = (() => {
-
-    
-})();
-
-
-// Factory for creating players
-const playerFactory = (name) => {
-
-    return {  };
-};
