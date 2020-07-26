@@ -1,3 +1,7 @@
+:root {
+    --grid: rgb(128, 128, 128);
+}
+
 * {
     margin: 0;
     font-family: 'Courier New';
@@ -11,6 +15,11 @@
     line-height: 120px;
     font-size: 3em;
     background-color: black;
+    text-shadow: 2px 2px 3px rgb(255, 0, 255),
+    -2px -2px 3px rgb(0, 255, 0),
+    -2px 2px 3px rgb(255, 0, 255),
+    2px -2px 3px rgb(0, 255, 0);
+    color: rgb(68, 68, 68);
 }
 
 body {
@@ -41,7 +50,11 @@ body {
 .square {
     min-width: 200px;
     min-height: 200px;
-    color: rgb(223, 0, 243);
+    color: rgb(68, 68, 68);
+    text-shadow: 2px 2px 3px rgb(0, 255, 0),
+    -2px -2px 3px rgb(0, 255, 0),
+    -2px 2px 3px rgb(0, 255, 0),
+    2px -2px 3px rgb(0, 255, 0);
     text-align: center;
     line-height: 200px;
     font-size: 10em;
@@ -52,62 +65,66 @@ body {
 
 /* lines */
 .square[data-square="0"] {
-    border-bottom: 10px solid white;
-    border-right: 10px solid white;
+    border-bottom: 10px solid var(--grid);
+    border-right: 10px solid var(--grid);
 }
 
 .square[data-square="1"] {
-    border-bottom: 10px solid white;
-    border-right: 10px solid white;
-    border-left: 10px solid white;
+    border-bottom: 10px solid var(--grid);
+    border-right: 10px solid var(--grid);
+    border-left: 10px solid var(--grid);
 }
 
 .square[data-square="2"] {
-    border-bottom: 10px solid white;
-    border-left: 10px solid white;
+    border-bottom: 10px solid var(--grid);
+    border-left: 10px solid var(--grid);
 }
 
 .square[data-square="3"] {
-    border-top: 10px solid white;
-    border-bottom: 10px solid white;
-    border-right: 10px solid white;
+    border-top: 10px solid var(--grid);
+    border-bottom: 10px solid var(--grid);
+    border-right: 10px solid var(--grid);
 }
 
 .square[data-square="4"] {
-    border-top: 10px solid white;
-    border-bottom: 10px solid white;
-    border-right: 10px solid white;
-    border-left: 10px solid white;
+    border-top: 10px solid var(--grid);
+    border-bottom: 10px solid var(--grid);
+    border-right: 10px solid var(--grid);
+    border-left: 10px solid var(--grid);
 }
 
 .square[data-square="5"] {
-    border-top: 10px solid white;
-    border-bottom: 10px solid white;
-    border-left: 10px solid white;
+    border-top: 10px solid var(--grid);
+    border-bottom: 10px solid var(--grid);
+    border-left: 10px solid var(--grid);
 }
 
 .square[data-square="6"] {
-    border-top: 10px solid white;
-    border-right: 10px solid white;
+    border-top: 10px solid var(--grid);
+    border-right: 10px solid var(--grid);
 }
 
 .square[data-square="7"] {
-    border-top: 10px solid white;
-    border-right: 10px solid white;
-    border-left: 10px solid white;
+    border-top: 10px solid var(--grid);
+    border-right: 10px solid var(--grid);
+    border-left: 10px solid var(--grid);
 }
 
 .square[data-square="8"] {
-    border-top: 10px solid white;
-    border-left: 10px solid white;
+    border-top: 10px solid var(--grid);
+    border-left: 10px solid var(--grid);
 }
 
 .stroke {
-    border: 10px solid rgb(223, 0, 243);
+    border: 10px solid rgb(0, 255, 0);
     position: absolute;
     width: 660px;
     display: none;
     border-radius: 10px;
+    box-shadow: 2px 2px 3px rgb(0, 255, 0),
+    -2px -2px 3px rgb(0, 255, 0),
+    -2px 2px 3px rgb(0, 255, 0),
+    2px -2px 3px rgb(0, 255, 0);
 }
 
 /* Horizontal strokes */
@@ -163,4 +180,58 @@ body {
 @keyframes stroke-fade {
     0% {opacity: 0;}
     100% {opacity: 1;}
+}
+
+#winner {
+    position: absolute;
+    width: 640px;
+    height: 640px;
+    top: -100px;
+    text-align: center;
+    font-size: 5em;
+    color: rgb(68, 68, 68);
+    text-shadow: 2px 2px 3px rgb(255, 0, 255),
+    -2px -2px 3px rgb(0, 255, 0),
+    -2px 2px 3px rgb(255, 0, 255),
+    2px -2px 3px rgb(0, 255, 0);
+    line-height: 640px;
+    display: none;
+}
+
+#reset-button {
+    color: rgb(68, 68, 68);
+    background-color: rgba(255, 255, 255, 0);
+    position: absolute;
+    left: 160px;
+    top: 300px;
+    border: none;
+    outline: none;
+    width: 320px;
+    height: 65px;
+    font-size: 3em;
+    display: none;
+    border-radius: 200px;
+    text-shadow: 1px 1px 2px rgb(255, 0, 255),
+    -1px -1px 2px rgb(0, 255, 0),
+    -1px 1px 2px rgb(255, 0, 255),
+    1px -1px 2px rgb(0, 255, 0);
+    box-shadow: 1px 1px 2px rgb(255, 0, 255),
+    -1px -1px 2px rgb(0, 255, 0),
+    -1px 1px 2px rgb(255, 0, 255),
+    1px -1px 2px rgb(0, 255, 0);
+}
+
+#reset-button:hover {
+    background-color: rgb(68, 68, 68);
+    cursor: pointer;
+}
+
+@keyframes winner-fade {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes squares-fade {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
 }

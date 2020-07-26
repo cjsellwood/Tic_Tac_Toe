@@ -9,11 +9,19 @@ let gameBoard = (() => {
     // Winning strokes
     let strokes = document.querySelectorAll(".stroke");
 
+    // Winner display div
+    let winnerDiv = document.getElementById("winner");
+
+    // Reset button
+    let resetButton = document.getElementById("reset-button");
+
     // Show added marks
     const render = () => {
         for (let i = 0; i < board.length; i++) {
             squares[i].textContent = board[i];
         }
+        
+        resetButton.addEventListener('click', resetBoard);
     }
 
     // Add x or o to board
@@ -41,10 +49,6 @@ let gameBoard = (() => {
                 winner = board[i];
 
                 // Display Strokes and fade them in
-
-                if (i === 0) {
-                    strokes[0].style.display = "block";
-                }
                 let strokeToDisplay = -1;
 
                 switch(i) {
@@ -58,10 +62,8 @@ let gameBoard = (() => {
                         strokeToDisplay = 2;
                         break;
                 }
-
                 strokes[strokeToDisplay].style.display = "block";
                 strokes[strokeToDisplay].style.animation = "1.2s stroke-fade linear 1"
-
             }
         }
 
@@ -70,6 +72,7 @@ let gameBoard = (() => {
             if (board[i] === board[i + 3] && board[i] === board[i + 6] && board[i] !== "") {
                 winner = board[i];
 
+                // Display Strokes and fade them in
                 let strokeToDisplay = -1;
 
                 switch(i) {
@@ -83,7 +86,6 @@ let gameBoard = (() => {
                         strokeToDisplay = 5;
                         break;
                 }
-
                 strokes[strokeToDisplay].style.display = "block";
                 strokes[strokeToDisplay].style.animation = "1.2s stroke-fade linear 1"
             }
@@ -102,8 +104,47 @@ let gameBoard = (() => {
             strokes[7].style.animation = "1.2s stroke-fade linear 1"
         }
 
-        console.log(winner);
+        // Show winner on screen
+        if (winner !== "") {
+            // Winning message
+            winnerDiv.textContent = "Player " + winner + " wins";
+            winnerDiv.style.animation = "5s winner-fade ease-in 1";
+            winnerDiv.style.display = "block";
 
+            // Reset Button
+            resetButton.style.animation = "5s winner-fade ease-in 1";
+            resetButton.style.display = "block";
+
+            // Fade squares
+            for (let i = 0; i < squares.length; i++) {
+                squares[i].style.animation = "2s 1.5s squares-fade ease-out 1 forwards";
+            }
+
+            // Fade strokes
+            for (let i = 0; i < strokes.length; i++) {
+                strokes[i].style.animation = "2s 1.5s squares-fade ease-out 1 forwards";
+            }
+        }
+
+    }
+    
+    // Restart the game with a blank board
+    const resetBoard = () => {
+        
+        // Board reset
+        board = ["", "", "", "", "", "", "", "", ""]
+
+        // Display reset
+        winnerDiv.style.display = "none";
+        resetButton.style.display = "none";
+        for (let i = 0; i < squares.length; i++) {
+            squares[i].style.animation = "none";
+        }
+        for (let i = 0; i < strokes.length; i++) {
+            strokes[i].style.display = "none";
+        }
+
+        render()
     }
 
     // Available for public use
